@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Button } from 'primereact/button';
 
 import PrimeReact from 'primereact/api';
+import { AddCategory } from './components/AddCategory';
 
 
 export const GiftExpertApp = () => {
@@ -22,6 +23,7 @@ export const GiftExpertApp = () => {
       <h1>GifExpertApp</h1>
 
       {/* input */}
+      <AddCategory />
 
       {/* listado de items/gifs */}
       <Button onClick={ onAddCategory } label="Add" icon="pi pi-plus" />
