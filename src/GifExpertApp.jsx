@@ -1,43 +1,44 @@
 import { useState } from 'react';
 import { Button } from 'primereact/button';
 
-import PrimeReact from 'primereact/api';
+// import PrimeReact from 'primereact/api';
 import { AddCategory } from './components/AddCategory';
-
+import { GifGrid } from './components/GifGrid';
 
 export const GiftExpertApp = () => {
+  // PrimeReact.ripple  = true;
 
-  const [ categories, setCategories ] = useState([ 'One Punch', 'Dragon ball' ])
-  const [selectCategory, setSelectCategory] = useState(null)
+  const [ categories, setCategories ] = useState([ 'One Punch' ])
 
-  PrimeReact.ripple  = true;
-  const onAddCategory = () => {
-    // console.log(categories);
-    setCategories([ 'Valorant', ...categories ])
+  const onAddCategory = ( newCategory ) => {
+    if( categories.includes(newCategory) ) return;
+    // console.log(newCategory);
+    setCategories([ newCategory, ...categories ])
     // setCategories( cat => [...cat, 'Valorant'] );
   }
 
   return (
     <>
-      {/* titulo */}
       <h1>GifExpertApp</h1>
 
-      {/* input */}
-      <AddCategory />
+      <AddCategory
+        // setCategories={setCategories}
+        onNewCategory={ (value) => onAddCategory(value) }
+      />
 
-      {/* listado de items/gifs */}
-      <Button onClick={ onAddCategory } label="Add" icon="pi pi-plus" />
-      {/* <button onClick={ onAddCategory }>Add</button> */}
+      {
+        categories.map( (category ) => (
+              <GifGrid
+                key={ category }
+                category={ category }
+              />
+              // <div key={ category }>
+              //   <h1>{ category }</h1>
+              //   <li>{ category }</li>
+              // </div>
+        ))
+      }
 
-      <ol>
-        { categories.map( category => {
-            return <li key={ category }>{ category }</li>
-          })
-        }
-      </ol>
-        {/* gif item */}
-
-      <p>  LfUzyKCYMDP4i6KcFLjVCQJmPbg4ulk0</p>
     </>
   )
 
