@@ -1,9 +1,6 @@
 import { useState } from 'react';
-import { Button } from 'primereact/button';
 
-// import PrimeReact from 'primereact/api';
-import { AddCategory } from './components/AddCategory';
-import { GifGrid } from './components/GifGrid';
+import { AddCategory, GifGrid } from './components';
 
 export const GiftExpertApp = () => {
   // PrimeReact.ripple  = true;
