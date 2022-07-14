@@ -1,7 +1,5 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import "primereact/resources/themes/saga-blue/theme.css";  //theme
-import 'primeicons/primeicons.css';
 
 import { GiftExpertApp } from './GifExpertApp';
 import './styles.css'
